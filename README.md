@@ -109,17 +109,35 @@ KOL can find open campaigns on `/explore-campaigns` and apply. The company will 
 | `LoadingSpinner`    | Inside buttons and small loaders         |
 | `StatusTag`         | Collaboration and campaign cards         |
 
+```
+
 ---
 
-## Criteria
+## Environment Setup
 
-| Criterion             | Implementation                                                           |
-|-----------------------|-------------------------------------------------------------------------|
-| Clean Architecture    | Kept features in separate folders, all API calls go through one place   |
-| UI/UX Quality         | Used CSS variables for design, made 3 types of skeleton loaders         |
-| State Management      | Used 3 contexts + local state                                           |
-| Role-based Routing    | ProtectedRoute checks JWT and role, wrong role gets sent to dashboard   |
-| Code Reusability      | Made 9 shared components, didn't repeat code for KOL and Company pages  |
-| Mobile Responsiveness | Made a responsive.css file, chat works on mobile, sidebar collapses     |
-| Error Handling        | Added Axios interceptor and ErrorBoundary for catching errors           |
-| Scalability Readiness | API layer is separate, CSS tokens used                                  |
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/collabrix.git
+cd collabrix/kol-platform
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Run the Development Server
+
+```bash
+npm run dev
+```
+
+
+### 4. Build for Production
+
+```bash
+npm run build
+
+```
