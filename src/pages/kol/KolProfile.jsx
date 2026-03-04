@@ -1,417 +1,257 @@
-/* Tablet: 768px - 1024px */
-@media (max-width: 1024px) {
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .charts-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .dashboard-grid-2 {
-    grid-template-columns: 1fr;
-  }
-
-  .wallet-balance-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .chat-layout {
-    grid-template-columns: 240px 1fr;
-  }
-
-  .chat-panel {
-    display: none;
-  }
-
-  .hero-title {
-    font-size: 34px;
-  }
-
-  .public-nav-links {
-    display: none;
-  }
-
-  .form-row {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ── Profile header layout (shared: KOL + Company) ── */
-
-/* KOL profile header: avatar | info | stats */
-.profile-header-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  flex-wrap: nowrap;
-}
-
-.profile-header-info {
-  flex: 1;
-  min-width: 0; /* prevents text overflow pushing siblings */
-}
-
-.profile-header-stats {
-  display: flex;
-  gap: 24px;
-  flex-shrink: 0;
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
-
-/* Company profile header: avatar | name/email */
-.company-profile-header {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 20px;
-  flex-wrap: nowrap;
-}
-
-.company-profile-header-info {
-  min-width: 0;
-  flex: 1;
-}
-
-.company-profile-header-info > div,
-.company-profile-header-info > span {
-  display: block;
-}
-
-/* Mobile: up to 768px */
-@media (max-width: 768px) {
-  .sidebar {
-    transform: translateX(-100%);
-    width: var(--sidebar-width) !important;
-  }
-
-  .sidebar.mobile-open {
-    transform: translateX(0);
-  }
-
-  .main-content {
-    margin-left: 0 !important;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-
-  .topbar {
-    padding: 0 16px;
-  }
-
-  .page-wrapper {
-    padding: 16px;
-  }
-
-  .stats-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-
-  .stat-value {
-    font-size: 20px;
-  }
-
-  .charts-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .dashboard-grid-2 {
-    grid-template-columns: 1fr;
-  }
-
-  .wallet-balance-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .chat-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .chat-sidebar {
-    display: none;
-  }
-
-  .chat-panel {
-    display: none;
-  }
-
-  .chat-sidebar.mobile-show {
-    display: block;
-    position: fixed;
-    inset: 0;
-    z-index: 200;
-    width: 100%;
-  }
-
-  .kols-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .campaigns-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .social-accounts-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .auth-card {
-    padding: 24px 20px;
-  }
-
-  .hero {
-    padding: 48px 20px;
-  }
-
-  .hero-title {
-    font-size: 26px;
-  }
-
-  .hero-sub {
-    font-size: 15px;
-  }
-
-  .public-nav {
-    padding: 14px 20px;
-  }
-
-  .public-nav-links {
-    display: none;
-  }
-
-  .step-wizard {
-    gap: 0;
-  }
-
-  .step-label {
-    display: none;
-  }
-
-  .filters-bar {
-    flex-direction: column;
-  }
-
-  .filter-group {
-    width: 100%;
-  }
-
-  .collab-card-header {
-    flex-direction: column;
-  }
-
-  .transaction-table thead {
-    display: none;
-  }
-
-  .transaction-table tr {
-    display: block;
-    border-bottom: 1px solid var(--color-border);
-    padding: 10px 0;
-  }
-
-  .transaction-table td {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: none;
-    padding: 4px 14px;
-  }
-
-  .transaction-table td::before {
-    content: attr(data-label);
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: var(--color-text-muted);
-    letter-spacing: 0.5px;
-  }
-
-  .notif-dropdown {
-    right: -60px;
-    width: 280px;
-  }
-
-  .modal-box {
-    margin: 0 10px;
-  }
-
-  .kol-card-stats {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .topbar-username {
-    display: none;
-  }
-
-  .chat-main-header {
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .chat-message {
-    max-width: 85%;
-  }
-
-  .btn-lg {
-    padding: 10px 16px;
-    font-size: 13px;
-  }
-
-  /* ── KOL profile header: stack vertically on mobile ── */
-  .profile-header-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 14px;
-  }
-
-  .profile-header-stats {
-    width: 100%;
-    justify-content: flex-start;
-    gap: 20px;
-    padding-top: 4px;
-    border-top: 1px solid var(--color-border);
-  }
-
-  /* ── Company profile header: stack on mobile ── */
-  .company-profile-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-  }
-}
-
-/* Small mobile */
-@media (max-width: 480px) {
-  .stats-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .auth-card {
-    padding: 20px 16px;
-  }
-
-  .hero-title {
-    font-size: 22px;
-  }
-
-  .toast-container {
-    bottom: 16px;
-    right: 16px;
-    left: 16px;
-  }
-
-  .toast {
-    min-width: unset;
-    width: 100%;
-  }
-
-  .kol-card-actions {
-    flex-direction: column;
-  }
-
-  .collab-actions {
-    flex-direction: column;
-  }
-
-  .collab-actions .btn {
-    width: 100%;
-    justify-content: center;
-  }
-
-  /* Profile stats go full-width in a row */
-  .profile-header-stats {
-    gap: 16px;
-  }
-}
-
-/* ── Home stats bar ── */
-@media (max-width: 600px) {
-  .home-stats-bar {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .home-stat-item {
-    border-right: none;
-    border-bottom: 1px solid var(--color-border);
-    padding: 16px 12px;
-  }
-
-  .home-stat-item:nth-child(odd) {
-    border-right: 1px solid var(--color-border);
-  }
-
-  .home-stat-item:nth-child(3),
-  .home-stat-item:nth-child(4) {
-    border-bottom: none;
-  }
-
-  .home-stat-value {
-    font-size: 18px;
-  }
-
-  .home-stat-label {
-    font-size: 10px;
-  }
-}
-
-@media (max-width: 380px) {
-  .home-stat-value {
-    font-size: 15px;
-  }
-
-  .home-stat-label {
-    font-size: 9px;
-    letter-spacing: 0;
-  }
-
-  .home-stat-item {
-    padding: 14px 8px;
-  }
-}
-
-/* ── Hero ── */
-@media (max-width: 600px) {
-  .hero {
-    padding: 40px 20px;
-  }
-
-  .hero-title {
-    font-size: 26px;
-  }
-
-  .hero-sub {
-    font-size: 14px;
-  }
-
-  .hero-actions {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .hero-actions .btn {
-    justify-content: center;
-    width: 100%;
-  }
-}
-
-/* ── Public nav on mobile ── */
-@media (max-width: 600px) {
-  .public-nav {
-    padding: 12px 16px;
-  }
-
-  .public-nav-links {
-    display: none;
-  }
-}
-
-/* ── How it works cards ── */
-@media (max-width: 600px) {
-  .home-how-grid {
-    grid-template-columns: 1fr;
-  }
+import { useState } from 'react'
+import { useAuth } from '../../context/AuthContext'
+import { demoKolProfile } from '../../utils/demoData'
+import { formatINR, formatNumber } from '../../utils/formatters'
+import Avatar from '../../components/common/Avatar'
+
+const platformColor = { Instagram: '#e1306c', YouTube: '#ff0000', X: '#000' }
+
+export default function KolProfile() {
+  const { user } = useAuth()
+
+  const [profile, setProfile] = useState(() => {
+    if (user?.isDemo) return { ...demoKolProfile }
+    return {
+      id: user?.id || '',
+      name: user?.name || '',
+      email: user?.email || '',
+      category: '',
+      country: '',
+      bio: '',
+      priceFrom: 0,
+      rating: null,
+      verified: false,
+      avatar: null,
+      socialAccounts: []
+    }
+  })
+
+  const [editing, setEditing] = useState(false)
+  const [draft, setDraft] = useState({ ...profile })
+  const [saved, setSaved] = useState(false)
+
+  function field(key) {
+    return e => setDraft(p => ({ ...p, [key]: e.target.value }))
+  }
+
+  function save(e) {
+    e.preventDefault()
+    setProfile({ ...draft })
+    setEditing(false)
+    setSaved(true)
+    setTimeout(() => setSaved(false), 2500)
+  }
+
+  function cancel() {
+    setDraft({ ...profile })
+    setEditing(false)
+  }
+
+  return (
+    <div className="page-wrapper">
+      <div style={{
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        marginBottom: 24, flexWrap: 'wrap', gap: 12
+      }}>
+        <div className="page-title" style={{ marginBottom: 0 }}>My Profile</div>
+        {!editing && (
+          <button
+            className="btn btn-secondary"
+            onClick={() => { setDraft({ ...profile }); setEditing(true) }}
+          >
+            Edit Profile
+          </button>
+        )}
+      </div>
+
+      {saved && (
+        <div className="auth-message success" style={{ marginBottom: 18 }}>
+          Profile saved successfully.
+        </div>
+      )}
+
+      {editing ? (
+        <form onSubmit={save}>
+          <div className="settings-section">
+            <div className="settings-section-title">Basic Details</div>
+
+            <div className="form-row">
+              <div className="form-group">
+                <label className="form-label">Display Name</label>
+                <input className="form-input" value={draft.name} onChange={field('name')} required />
+              </div>
+              <div className="form-group">
+                <label className="form-label">Category / Niche</label>
+                <input className="form-input" value={draft.category} onChange={field('category')} />
+              </div>
+            </div>
+
+            <div className="form-row">
+              <div className="form-group">
+                <label className="form-label">Country</label>
+                <input className="form-input" value={draft.country} onChange={field('country')} />
+              </div>
+              <div className="form-group">
+                <label className="form-label">Starting Price (₹)</label>
+                <input
+                  className="form-input"
+                  type="number"
+                  value={draft.priceFrom}
+                  onChange={field('priceFrom')}
+                />
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label className="form-label">Bio</label>
+              <textarea
+                className="form-input"
+                rows={3}
+                value={draft.bio}
+                onChange={field('bio')}
+                style={{ resize: 'vertical' }}
+              />
+            </div>
+          </div>
+
+          <div style={{ display: 'flex', gap: 10, marginTop: 4 }}>
+            <button className="btn btn-primary" type="submit">Save Changes</button>
+            <button className="btn btn-secondary" type="button" onClick={cancel}>Cancel</button>
+          </div>
+        </form>
+      ) : (
+        <>
+          {/* ── Profile header card ── */}
+          <div className="settings-section">
+            {/* Outer row: avatar + right content */}
+            <div className="profile-header-row">
+              <Avatar name={profile.name} size={72} src={profile.avatar} />
+
+              {/* Middle: name, category, bio */}
+              <div className="profile-header-info">
+                <div style={{
+                  display: 'flex', alignItems: 'center', gap: 8,
+                  marginBottom: 4, flexWrap: 'wrap'
+                }}>
+                  <span style={{ fontSize: 20, fontWeight: 700 }}>{profile.name}</span>
+                  {profile.verified && (
+                    <span style={{
+                      fontSize: 11, color: '#fff', background: 'var(--color-info)',
+                      padding: '2px 8px', borderRadius: 20, fontWeight: 600
+                    }}>
+                      Verified
+                    </span>
+                  )}
+                </div>
+                <div style={{ fontSize: 13, color: 'var(--color-text-muted)', marginBottom: 6 }}>
+                  {profile.category}
+                  {profile.country ? ` · ${profile.country}` : ''}
+                </div>
+                {profile.bio && (
+                  <div style={{
+                    fontSize: 13, color: 'var(--color-text-secondary)',
+                    lineHeight: 1.6
+                  }}>
+                    {profile.bio}
+                  </div>
+                )}
+              </div>
+
+              {/* Stats: rating + price */}
+              {(profile.rating || profile.priceFrom > 0) && (
+                <div className="profile-header-stats">
+                  {profile.rating && (
+                    <div style={{ textAlign: 'center' }}>
+                      <div style={{ fontSize: 18, fontWeight: 700 }}>⭐ {profile.rating}</div>
+                      <div style={{ fontSize: 11, color: 'var(--color-text-muted)', textTransform: 'uppercase' }}>
+                        Rating
+                      </div>
+                    </div>
+                  )}
+                  {profile.priceFrom > 0 && (
+                    <div style={{ textAlign: 'center' }}>
+                      <div style={{ fontSize: 18, fontWeight: 700 }}>{formatINR(profile.priceFrom)}</div>
+                      <div style={{ fontSize: 11, color: 'var(--color-text-muted)', textTransform: 'uppercase' }}>
+                        From
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* ── Social accounts ── */}
+          {profile.socialAccounts && profile.socialAccounts.length > 0 ? (
+            <div className="settings-section">
+              <div className="settings-section-title">Social Platforms</div>
+              <div className="social-accounts-grid">
+                {profile.socialAccounts.map(acc => (
+                  <div key={acc.id} className="social-account-card">
+                    <div className="social-platform-header">
+                      <div
+                        className="social-platform-name"
+                        style={{ color: platformColor[acc.platform] || '#333' }}
+                      >
+                        {acc.platform}
+                        {acc.verified && (
+                          <span
+                            title="Verified"
+                            style={{ color: 'var(--color-info)', fontSize: 11 }}
+                          >
+                            ✔
+                          </span>
+                        )}
+                      </div>
+                    </div>
+
+                    <div style={{ marginBottom: 14 }}>
+                      <a
+                        href={acc.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        style={{
+                          fontSize: 13,
+                          color: 'var(--color-info)',
+                          textDecoration: 'underline',
+                          wordBreak: 'break-all'
+                        }}
+                      >
+                        {acc.url}
+                      </a>
+                    </div>
+
+                    <div className="social-stats-row">
+                      <div className="social-stat">
+                        <div className="social-stat-val">{formatNumber(acc.followers)}</div>
+                        <div className="social-stat-lbl">Followers</div>
+                      </div>
+                      <div className="social-stat">
+                        <div className="social-stat-val">{acc.engagementRate}%</div>
+                        <div className="social-stat-lbl">Engage</div>
+                      </div>
+                      <div className="social-stat">
+                        <div className="social-stat-val">{formatNumber(acc.avgViews)}</div>
+                        <div className="social-stat-lbl">Avg Views</div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <div className="settings-section">
+              <div className="settings-section-title">Social Platforms</div>
+              <div style={{ fontSize: 13, color: 'var(--color-text-muted)' }}>
+                No social accounts added yet.{' '}
+                <a href="/kol/social-accounts" style={{ color: 'var(--color-accent)' }}>
+                  Add platforms
+                </a>
+              </div>
+            </div>
+          )}
+        </>
+      )}
+    </div>
+  )
 }
