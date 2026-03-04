@@ -37,6 +37,48 @@
   }
 }
 
+/* ── Profile header layout (shared: KOL + Company) ── */
+
+/* KOL profile header: avatar | info | stats */
+.profile-header-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: nowrap;
+}
+
+.profile-header-info {
+  flex: 1;
+  min-width: 0; /* prevents text overflow pushing siblings */
+}
+
+.profile-header-stats {
+  display: flex;
+  gap: 24px;
+  flex-shrink: 0;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* Company profile header: avatar | name/email */
+.company-profile-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: nowrap;
+}
+
+.company-profile-header-info {
+  min-width: 0;
+  flex: 1;
+}
+
+.company-profile-header-info > div,
+.company-profile-header-info > span {
+  display: block;
+}
+
 /* Mobile: up to 768px */
 @media (max-width: 768px) {
   .sidebar {
@@ -218,6 +260,28 @@
     padding: 10px 16px;
     font-size: 13px;
   }
+
+  /* ── KOL profile header: stack vertically on mobile ── */
+  .profile-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .profile-header-stats {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 20px;
+    padding-top: 4px;
+    border-top: 1px solid var(--color-border);
+  }
+
+  /* ── Company profile header: stack on mobile ── */
+  .company-profile-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
 }
 
 /* Small mobile */
@@ -256,6 +320,11 @@
   .collab-actions .btn {
     width: 100%;
     justify-content: center;
+  }
+
+  /* Profile stats go full-width in a row */
+  .profile-header-stats {
+    gap: 16px;
   }
 }
 
