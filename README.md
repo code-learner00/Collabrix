@@ -109,9 +109,6 @@ KOL can find open campaigns on `/explore-campaigns` and apply. The company will 
 | `LoadingSpinner`    | Inside buttons and small loaders         |
 | `StatusTag`         | Collaboration and campaign cards         |
 
-```
-
----
 
 ## Environment Setup
 
