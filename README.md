@@ -94,9 +94,9 @@ KOL can find open campaigns on `/explore-campaigns` and apply. The company will 
 
 ---
 
-## Reusable Components I Made
+## Reusable Components Architecture
 
-| Component           | Where I Used It                          |
+| Component           | Reused In                        |
 |---------------------|------------------------------------------|
 | `Modal`             | Proposals, confirmations, messaging      |
 | `Toast`             | Every form and action feedback           |
@@ -111,9 +111,9 @@ KOL can find open campaigns on `/explore-campaigns` and apply. The company will 
 
 ---
 
-## How I Tried to Meet the Criteria
+## Criteria
 
-| Criterion             | What I did                                                              |
+| Criterion             | Implementation                                                           |
 |-----------------------|-------------------------------------------------------------------------|
 | Clean Architecture    | Kept features in separate folders, all API calls go through one place   |
 | UI/UX Quality         | Used CSS variables for design, made 3 types of skeleton loaders         |
