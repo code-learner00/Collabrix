@@ -21,8 +21,8 @@ All data is mock. No backend connection is required to run the demo.
 kol-platform/
 ├── src/
 │   │
-│   ├── api/                          # Axios instances, interceptors & all API calls
-│   ├── assets/                       # Static files — images, avatars, logo
+│   ├── api/                          # Axios 
+│   ├── assets/                       #  images, avatars, logo
 │   ├── components/
 │   │   ├── admin/                    # Placeholder components reserved for admin phase
 │   │   ├── common/                   # Shared reusable components used across all roles
@@ -47,7 +47,7 @@ kol-platform/
 ├── vite.config.js                    
 └── package.json                      # Dependencies, scripts, and project metadata
 
----
+```
 ## Core Features
 
 ### Authentication
