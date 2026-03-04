@@ -28,7 +28,7 @@ export default function CompanyProfile() {
 
   return (
     <div className="page-wrapper">
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20, flexWrap: 'wrap', gap: 12 }}>
         <div className="page-title" style={{ marginBottom: 0 }}>Company Profile</div>
         <button className="btn btn-secondary" onClick={() => setEditMode(p => !p)}>
           {editMode ? 'Cancel' : 'Edit Profile'}
@@ -38,9 +38,10 @@ export default function CompanyProfile() {
       {saved && <div className="auth-message success" style={{ marginBottom: 16 }}>Profile updated.</div>}
 
       <div className="card">
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 20 }}>
+        {/* Avatar + name header — stacks on mobile */}
+        <div className="company-profile-header">
           <Avatar name={form.companyName} size={72} src={avatar} />
-          <div>
+          <div className="company-profile-header-info">
             <div style={{ fontSize: 18, fontWeight: 700 }}>{form.companyName}</div>
             <div style={{ fontSize: 13, color: 'var(--color-text-muted)' }}>{user?.email}</div>
             {user?.isDemo && <span className="badge badge-green" style={{ marginTop: 4 }}>Verified</span>}
@@ -90,7 +91,7 @@ export default function CompanyProfile() {
             ) : (
               <p style={{ fontSize: 13, color: 'var(--color-text-muted)', marginBottom: 16 }}>No description added yet.</p>
             )}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: 12 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: 12 }}>
               <div>
                 <div style={{ fontSize: 11, fontWeight: 600, textTransform: 'uppercase', color: 'var(--color-text-muted)', marginBottom: 3 }}>Website</div>
                 {form.website ? (
