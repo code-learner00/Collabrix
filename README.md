@@ -13,144 +13,113 @@ Collabrix enables brands to create and manage influencer campaigns while allowin
 
 All data is mock. No backend connection is required to run the demo.
 
----
-
 ## Folder Structure
 
 ```
 kol-platform/
 ├── src/
 │   │
-│   ├── api/                          # Axios 
-│   ├── assets/                       #  images, avatars, logo
+│   ├── api/                          # all the API calls are here (using Axios)
+│   ├── assets/                       # images, avatars, and logo files
 │   ├── components/
-│   │   ├── admin/                    # Placeholder components reserved for admin phase
-│   │   ├── common/                   # Shared reusable components used across all roles
-│   │   ├── company/                  # Company-specific UI components
-│   │   ├── kol/                      # KOL-specific UI components
-│   │   └── layout/                   # App shell — sidebars, topbar, notification dropdown
-│   ├── context/                      # Global state providers — Auth, Messages, Notifications
-│   ├── hooks/                        # Custom reusable hooks — debounce, socket, toast
+│   │   ├── admin/                    # admin stuff, will be used later
+│   │   ├── common/                   # components that are used everywhere
+│   │   ├── company/                  # components only for company users
+│   │   ├── kol/                      # components only for KOL users
+│   │   └── layout/                   # sidebar, topbar, notification dropdown stuff
+│   ├── context/                      # global state for auth, messages, notifications
+│   ├── hooks/                        # some custom hooks I made — debounce, socket, toast
 │   ├── pages/
-│   │   ├── auth/                     # Login, Register, ForgotPassword, profile onboarding
-│   │   ├── company/                  # All company-role pages — dashboard, campaigns, wallet
-│   │   ├── kol/                      # All KOL-role pages — dashboard, collaborations, wallet
-│   │   └── public/                   # Public pages — Home, About, Pricing, Explore, 404
-│   ├── routes/                       # Route definitions and ProtectedRoute role guard
-│   ├── styles/                       # Global CSS, design tokens, and responsive breakpoints
-│   ├── utils/                        # Formatters, constants, and mock demo data
-│   ├── App.jsx                       # Root component — wraps providers and router
-│   └── main.jsx                      # React DOM entry point
+│   │   ├── auth/                     # login, register, forgot password, profile setup pages
+│   │   ├── company/                  # all pages for company users like dashboard, campaigns, wallet
+│   │   ├── kol/                      # all pages for KOL users like dashboard, collaborations, wallet
+│   │   └── public/                   # pages anyone can see — Home, About, Pricing, Explore, 404
+│   ├── routes/                       # routes are defined here, also has role protection
+│   ├── styles/                       # global CSS and some design variables I set up
+│   ├── utils/                        # helper functions, constants, and some fake data for testing
+│   ├── App.jsx                       # main component that puts everything together
+│   └── main.jsx                      # starting point of the app
 │
 ├── .env.example                     
 ├── index.html                       
 ├── vite.config.js                    
-└── package.json                      # Dependencies, scripts, and project metadata
-
+└── package.json                      # all dependencies and scripts are here
 ```
+---
+
 ## Core Features
 
 ### Authentication
-- JWT-based login with role decoding and automatic redirect
-- KOL → `/kol/dashboard`, Company → `/company/dashboard` on login
-- KOL registration: Email, Password, Full Name, Country, Category, Platform
-  → redirects to `KolProfileCompletion`
-- Company registration: Company Name, Email, Password, Website, Industry,
-  Country → redirects to `CompanyProfileSetup`
-- Dedicated post-registration onboarding pages for both roles
+- Login works with JWT, it checks the role and takes you to the right page
+- KOL users go to `/kol/dashboard`, Company users go to `/company/dashboard` after login
+- KOL signup needs: Email, Password, Full Name, Country, Category, Platform
+  → then it takes you to `KolProfileCompletion` page
+- Company signup needs: Company Name, Email, Password, Website, Industry,
+  Country → then it takes you to `CompanyProfileSetup` page
+- Both roles have their own profile setup pages after signing up
 
 ### Invite System
 
-**Company → KOL (Outbound Invite)**
-Company browses KOLs on `/company/browse-kols`, sends an invite from a KOL
-card or campaign management page. The KOL receives a notification and the
-collaboration appears in Incoming Requests with status `invited`.
+**Company → KOL (Company sends invite to KOL)**
+Company can look through KOLs on `/company/browse-kols` and send them an invite from the KOL card or from the campaigns page. The KOL gets a notification and can see it in their Incoming Requests with status showing `invited`.
 
-**KOL → Campaign (Inbound Application)**
-KOL discovers open campaigns on `/explore-campaigns` and submits an
-application. It appears in the Company's campaign page under Applied KOLs.
+**KOL → Campaign (KOL applies to a campaign)**
+KOL can find open campaigns on `/explore-campaigns` and apply. The company will then see them under Applied KOLs on their campaign page.
 
-**KOL Response Actions:** Accept → `in-progress` | Negotiate → opens chat |
-Reject → `rejected`
+**What KOL can do:** Accept → becomes `in-progress` | Negotiate → opens chat | Reject → becomes `rejected`
 
-**Company Actions:** Approve KOL | Send Invite | Mark Deliverable Complete |
-Release Payment
+**What Company can do:** Approve KOL | Send Invite | Mark Deliverable as Done | Release Payment
 
 ### Profile Management
 
-- **KOL:** Bio, Niche, Location, Languages, Audience Demographics, Media Kit
-  upload, Portfolio upload, Past Campaign Performance — Edit and Preview mode
-- **Company:** Logo, Description, Website, Industry, Verification Badge, Past
-  Campaigns — Edit and View mode
-- Full validation on all fields
+- **KOL:** Can edit Bio, Niche, Location, Languages, Audience info, upload Media Kit, upload Portfolio, and show Past Campaign stats — has Edit and Preview mode
+- **Company:** Can update Logo, Description, Website, Industry, and shows Verification Badge and Past Campaigns — has Edit and View mode
+- All fields have proper validation
 
 ### Campaign Management
 
-- Create Campaign: Title, Description, Deliverables, Budget Range, Deadline,
-  Target Audience, Platform, Country Target, File Attachments — validated form
-- Per-campaign tracking: Budget, Applied KOLs, Approved KOLs, Status,
-  Deliverables
+- Creating a campaign needs: Title, Description, Deliverables, Budget Range, Deadline, Target Audience, Platform, Target Country, and you can attach files — everything is validated
+- Each campaign shows: Budget, KOLs who applied, KOLs who got approved, Status, and Deliverables
 
 ### Wallet & Escrow
 
-- **KOL:** Available Balance, Pending Balance, Total Earned, Withdraw,
-  Transaction History (paginated, date-filtered), Payment Methods
-- **Company:** Total Funds, Current Balance, Funds in Escrow, Add Funds,
-  Transaction History with escrow indicators and confirmation modals
+- **KOL:** Can see Available Balance, Pending Balance, Total Earned, withdraw money, and view Transaction History (with pages and date filter), also manage Payment Methods
+- **Company:** Can see Total Funds, Current Balance, Funds locked in Escrow, Add Funds, and Transaction History with escrow info and confirmation popups
 
 ### Analytics
 
-- **KOL Dashboard:** Revenue Over Time (line), Campaign Success Rate (pie),
-  Engagement Growth (bar)
-- **Company Dashboard:** ROI Chart, Success Rate widget, Budget Spent tracking
-- All charts via Recharts — responsive and interactive
+- **KOL Dashboard:** Revenue Over Time chart (line), Campaign Success Rate (pie chart), Engagement Growth (bar chart)
+- **Company Dashboard:** ROI Chart, Success Rate, and Budget Spent info
+- All charts use Recharts library — they resize and work on all screens
 
 ---
 
-## Reusable Component Architecture
+## Reusable Components I Made
 
-| Component           | Reused In                               |
-|---------------------|-----------------------------------------|
-| `Modal`             | Proposals, confirmations, messaging     |
-| `Toast`             | Every form submission and action        |
-| `Pagination`        | KOLs, transactions, campaigns           |
-| `EmptyState`        | All list views when data is absent      |
-| `ErrorState`        | All async data fetching failures        |
-| `ErrorBoundary`     | Wraps all page-level components         |
-| `CardSkeleton`      | KOL cards, campaign cards loading       |
-| `TableSkeleton`     | Transaction history loading             |
-| `LoadingSpinner`    | Buttons and inline loaders              |
-| `StatusTag`         | Collaboration and campaign cards        |
-
-## Collaboration Lifecycle
-
-Every stage updates Campaign Status, Wallet UI, and Chat Status Panel.
-
-```
-1.  Company creates campaign
-2.  Company sends invite  OR  KOL applies
-3.  KOL accepts invite              →  company notified
-4.  Chat negotiation begins         →  status: negotiating
-5.  KOL sends Final Offer
-6.  Both parties accept             →  status: in-progress
-7.  Funds move to escrow            →  Company wallet updates
-8.  KOL submits deliverable
-9.  Company approves deliverable
-10. Funds released to KOL wallet    →  status: completed
-```
+| Component           | Where I Used It                          |
+|---------------------|------------------------------------------|
+| `Modal`             | Proposals, confirmations, messaging      |
+| `Toast`             | Every form and action feedback           |
+| `Pagination`        | KOL list, transactions, campaigns        |
+| `EmptyState`        | All list pages when there's nothing      |
+| `ErrorState`        | When API calls fail                      |
+| `ErrorBoundary`     | Wrapped around all page components       |
+| `CardSkeleton`      | Loading state for KOL and campaign cards |
+| `TableSkeleton`     | Loading state for transaction table      |
+| `LoadingSpinner`    | Inside buttons and small loaders         |
+| `StatusTag`         | Collaboration and campaign cards         |
 
 ---
 
-## Criteria
+## How I Tried to Meet the Criteria
 
-| Criterion             | Implementation                                                          |
+| Criterion             | What I did                                                              |
 |-----------------------|-------------------------------------------------------------------------|
-| Clean Architecture    | Feature-based folders, centralized API layer, no cross-role coupling    |
-| UI/UX Quality         | CSS token design system, 3 skeleton types, 4-state handling everywhere  |
-| State Management      | 3 focused contexts + local state; no over-engineering with Redux        |
-| Role-based Routing    | ProtectedRoute validates JWT + role; wrong role redirects to dashboard  |
-| Code Reusability      | 13 shared common/ components, zero duplication across KOL/Company pages |
-| Mobile Responsiveness | responsive.css, mobile-first chat, collapsible sidebar, 3 breakpoints   |
-| Error Handling        | Axios interceptor + ErrorBoundary + 4-state pattern on every component  |
-| Scalability Readiness | API layer, EventBus swap-ready, CSS tokens, env-driven config           |
-
+| Clean Architecture    | Kept features in separate folders, all API calls go through one place   |
+| UI/UX Quality         | Used CSS variables for design, made 3 types of skeleton loaders         |
+| State Management      | Used 3 contexts + local state                                           |
+| Role-based Routing    | ProtectedRoute checks JWT and role, wrong role gets sent to dashboard   |
+| Code Reusability      | Made 9 shared components, didn't repeat code for KOL and Company pages  |
+| Mobile Responsiveness | Made a responsive.css file, chat works on mobile, sidebar collapses     |
+| Error Handling        | Added Axios interceptor and ErrorBoundary for catching errors           |
+| Scalability Readiness | API layer is separate, CSS tokens used                                  |
