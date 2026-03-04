@@ -1,0 +1,348 @@
+/* Tablet: 768px - 1024px */
+@media (max-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .wallet-balance-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .chat-layout {
+    grid-template-columns: 240px 1fr;
+  }
+
+  .chat-panel {
+    display: none;
+  }
+
+  .hero-title {
+    font-size: 34px;
+  }
+
+  .public-nav-links {
+    display: none;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile: up to 768px */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    width: var(--sidebar-width) !important;
+  }
+
+  .sidebar.mobile-open {
+    transform: translateX(0);
+  }
+
+  .main-content {
+    margin-left: 0 !important;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .topbar {
+    padding: 0 16px;
+  }
+
+  .page-wrapper {
+    padding: 16px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .stat-value {
+    font-size: 20px;
+  }
+
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .wallet-balance-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .chat-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .chat-sidebar {
+    display: none;
+  }
+
+  .chat-panel {
+    display: none;
+  }
+
+  .chat-sidebar.mobile-show {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    width: 100%;
+  }
+
+  .kols-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .campaigns-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .social-accounts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-card {
+    padding: 24px 20px;
+  }
+
+  .hero {
+    padding: 48px 20px;
+  }
+
+  .hero-title {
+    font-size: 26px;
+  }
+
+  .hero-sub {
+    font-size: 15px;
+  }
+
+  .public-nav {
+    padding: 14px 20px;
+  }
+
+  .public-nav-links {
+    display: none;
+  }
+
+  .step-wizard {
+    gap: 0;
+  }
+
+  .step-label {
+    display: none;
+  }
+
+  .filters-bar {
+    flex-direction: column;
+  }
+
+  .filter-group {
+    width: 100%;
+  }
+
+  .collab-card-header {
+    flex-direction: column;
+  }
+
+  .transaction-table thead {
+    display: none;
+  }
+
+  .transaction-table tr {
+    display: block;
+    border-bottom: 1px solid var(--color-border);
+    padding: 10px 0;
+  }
+
+  .transaction-table td {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: none;
+    padding: 4px 14px;
+  }
+
+  .transaction-table td::before {
+    content: attr(data-label);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    letter-spacing: 0.5px;
+  }
+
+  .notif-dropdown {
+    right: -60px;
+    width: 280px;
+  }
+
+  .modal-box {
+    margin: 0 10px;
+  }
+
+  .kol-card-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .topbar-username {
+    display: none;
+  }
+
+  .chat-main-header {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .chat-message {
+    max-width: 85%;
+  }
+
+  .btn-lg {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-card {
+    padding: 20px 16px;
+  }
+
+  .hero-title {
+    font-size: 22px;
+  }
+
+  .toast-container {
+    bottom: 16px;
+    right: 16px;
+    left: 16px;
+  }
+
+  .toast {
+    min-width: unset;
+    width: 100%;
+  }
+
+  .kol-card-actions {
+    flex-direction: column;
+  }
+
+  .collab-actions {
+    flex-direction: column;
+  }
+
+  .collab-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ── Home stats bar ── */
+@media (max-width: 600px) {
+  .home-stats-bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .home-stat-item {
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+    padding: 16px 12px;
+  }
+
+  .home-stat-item:nth-child(odd) {
+    border-right: 1px solid var(--color-border);
+  }
+
+  .home-stat-item:nth-child(3),
+  .home-stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+
+  .home-stat-value {
+    font-size: 18px;
+  }
+
+  .home-stat-label {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  .home-stat-value {
+    font-size: 15px;
+  }
+
+  .home-stat-label {
+    font-size: 9px;
+    letter-spacing: 0;
+  }
+
+  .home-stat-item {
+    padding: 14px 8px;
+  }
+}
+
+/* ── Hero ── */
+@media (max-width: 600px) {
+  .hero {
+    padding: 40px 20px;
+  }
+
+  .hero-title {
+    font-size: 26px;
+  }
+
+  .hero-sub {
+    font-size: 14px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-actions .btn {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+/* ── Public nav on mobile ── */
+@media (max-width: 600px) {
+  .public-nav {
+    padding: 12px 16px;
+  }
+
+  .public-nav-links {
+    display: none;
+  }
+}
+
+/* ── How it works cards ── */
+@media (max-width: 600px) {
+  .home-how-grid {
+    grid-template-columns: 1fr;
+  }
+}
